@@ -10,5 +10,8 @@ describe('Naam veranderen user', () => {
         cy.get('.accountName-input').clear()
         cy.get('.accountName-input').type('Rekening van Jan Willem')
         cy.get('button[type="submit"]').click()
+
+        cy.visit('http://localhost:3000')
+        cy.get('.accounts__account-name').should('contain', 'Rekening van Jan Willem')
     });
 })
